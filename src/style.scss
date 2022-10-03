@@ -1,0 +1,350 @@
+@mixin mobile {
+    @media screen and (max-width: 480px){
+        @content
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px){
+        @content
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1200px){
+        @content
+    }
+}
+
+
+.formContainer{
+    background-color: #9df9ef;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    .formWrapper{
+        background-color: white;
+        padding: 20px 60px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+
+        .logo{
+            color: #51e2f5;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .title{
+            color: black;
+            font-size: 12px;
+        }
+
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+
+            input{
+                padding: 15px;
+                border: none;
+                width: 250px;
+                border-bottom: 1px solid rgb(219, 208, 208);
+
+                &::placeholder{
+                    color: grey;
+                }
+            }
+            button{
+                background-color: #51e2f5;
+                color: rgb(243, 243, 243);
+                padding: 10px;
+                font-weight: bold;
+                border: none;
+                cursor: pointer;
+            }
+
+            label{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: black;
+                font-size: 12px;
+                cursor: pointer;
+
+                img{
+                    width: 32px;
+                }
+            }
+        }
+
+        p{
+          color: black;
+          font-size: 12px;
+          margin-top: 10px;
+        }
+    }
+}
+
+.home{
+    background-color:#e8e5d7;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container{
+        border-radius: 10px;
+        width: 65%;
+        height: 80%;
+        display: flex;
+        overflow: hidden;
+        @include tablet {
+            width: 90%;;
+        }
+
+
+        .sidebar{
+            flex:1;
+            background-color: #0049B7;
+
+            .search{
+                border-bottom: 1px solid whitesmoke;
+                border-top: 1px solid whitesmoke;
+
+                .searchForm{
+                    padding: 10px;
+
+                    input{
+                        background-color: transparent;
+                        border: none;
+                        color: white;
+                        outline: none;
+
+                        &::placeholder{
+                            color: #00DDFF;
+                        }
+                    }
+                }
+            }
+
+            .userChat{
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: black;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #fff685;
+                }
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50px;
+                    object-fit: cover;
+                }
+
+                .userChatinfo{
+                    span{
+                        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+                    p{font-size: 14px;color: #00DDFF;}
+                }
+            }
+
+
+            .navbar{
+                display: flex;
+                align-items: center;
+                background-color:#00DDFF;
+                height: 50px;
+                padding: 10px;
+                justify-content: space-between;
+                color:#0049B7;
+
+
+                .logo{
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    font-weight: bold;
+                    @include tablet {
+                        display: none;
+                    }
+                }
+
+                .user{
+                    font-family: Arial, Helvetica, sans-serif;
+                    display: flex;
+                    gap: 10px;
+                }
+
+                img{
+                    background-color: whitesmoke;
+                    height: 24px;
+                    width: 24px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                button{
+                    background-color: black;
+                    color: white;
+                    font-size: 10px;
+                    border: none;
+                    cursor: pointer;
+
+                    @include tablet {
+                        position: absolute;
+                        bottom: 10px;
+                    }
+                }
+            }
+        }
+        .chat{
+            flex:2;
+
+            .chatInfo{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                height: 50px;
+                background-color:#51e2f5;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                color: #0049B7;
+            }
+
+
+            .chatIcons{
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                display: flex;
+                gap: 25px;
+
+                img{
+                    height: 30px;
+                    cursor: pointer
+                }
+            }
+        
+
+            .messages{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: rgb(240, 240, 240);
+                padding: 10px;
+                height: calc(100% - 160px);
+                overflow: scroll;
+                
+
+
+                .message{
+                    display: flex;
+                    gap: 20px;
+
+                .messageInfo{
+
+                    display: flex;
+                    flex-direction: column;
+                    color: gray;
+                    font-size: 15px;
+                    font-weight: 300;
+                    
+
+                    img{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+
+                .messageContent{
+                    max-width: 80%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    p{
+                        
+                        background-color: white;
+                        padding: 10px 20px;
+                        border-radius: 0px 10px 10px 10px;
+                        max-width: max-content;
+                    }
+
+                    img{
+                        width: 50px;
+                    }
+                }
+
+                &.owner{
+                    flex-direction: row-reverse;
+
+                    .messageContent{
+                      align-items: flex-end;
+                    }
+
+                    p{
+                        background-color: rgba(255, 255, 255, 0.844);
+                        color: black;
+                        border-radius: 10px 0px 10px 10px;
+                    }
+                }
+            }
+            }
+
+            .input{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                height: 50px;
+                background-color: whitesmoke;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                input{
+                    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    color: gray;
+                    font-size: 18px;
+
+                    &::placeholder{
+                        color: lightgray;
+                    }
+                }
+
+                .send{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    img{
+                        height: 24px;
+                        cursor: pointer;
+                    }
+
+                    button{
+                        border:none;
+                        padding: 10px 15px;
+                        color: white;
+                        cursor: pointer;
+                        background-color:rgb(71, 155, 239); 
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
